@@ -1,0 +1,19 @@
+I'm building a multi-objective optimization model for Southwest Airlines' crew scheduling problem. I need you to generate synthetic data that realistically models the tradeoff between crew cost efficiency and schedule resilience.
+I have two decision variables:
+1. Crew Utilization Rate: The percentage of available crew hours actually scheduled to fly, ranging from 60% to 95%. A higher utilization rate means crews are scheduled more tightly with less slack time.
+2. Reserve Buffer Size: The number of reserve/standby crews held per 20-city route network, ranging from 2 to 20 reserve crews. More reserve crews provide backup when disruptions hit.
+Generate a CSV with 100 rows showing how these two variables affect both objectives. Use realistic patterns where:
+* Higher utilization rate reduces crew operating costs but also reduces resilience — when utilization is above 85%, disruption recovery becomes exponentially harder
+* Larger reserve buffer improves resilience but increases costs linearly
+* There is natural noise and variation in the data (not perfectly linear) to reflect real-world unpredictability
+* Some combinations are clearly inefficient (high cost AND low resilience) to create dominated points for Pareto analysis
+* FAA rest constraints mean that utilization rates above 92% should show sharp reliability penalties
+Format: CSV with columns:
+* utilization_rate (percentage, 60–95)
+* reserve_buffer (integer, 2–20)
+* crew_cost_index (0–100 scale, where 100 = most expensive)
+* resilience_score (0–100 scale, where 100 = most resilient)
+* on_time_rate (percentage of flights arriving on time, 60–98%)
+* disruption_recovery_hours (average hours to recover from a major disruption, 2–72)
+* overtime_cost_multiplier (how much overtime spikes during disruptions, 1.0–4.0)
+Include a mix of: efficient frontier points, clearly dominated points, and a few extreme edge cases. Do not make the data perfectly smooth — add realistic variance. Return only the CSV with no explanation.
