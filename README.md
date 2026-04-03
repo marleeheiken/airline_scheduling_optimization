@@ -67,9 +67,10 @@ pip install -r requirements.txt
 ## Repository Structure
 ```
 airline_scheduling_optimization/
-├── optimization_engine.ipynb   # Main analysis notebook
+├── optimization_engine.ipynb       # Main analysis notebook
 ├── data/
-│   └── sw_crew_scheduling.csv  # Synthetic 100-solution dataset
+│   └── data_generation_prompt.txt  # Prompt to create synthetic dataset
+│   └── sw_crew_scheduling.csv      # Synthetic 100-solution dataset
 ├── images/
 │   ├── data_exploration.png
 │   └── pareto_frontier_analysis.png
