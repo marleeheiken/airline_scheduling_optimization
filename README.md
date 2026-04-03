@@ -4,7 +4,7 @@
 This project builds an optimization-based decision agent for Southwest Airlines that solves the crew scheduling tradeoff between minimizing labor costs and maximizing schedule resilience. Using synthetic data modeled on real FAA regulations and Southwest's route network, it calculates the Pareto frontier of optimal crew pairing solutions and recommends the best option based on business constraints. The agent explains its reasoning in plain language so airline operations leaders can act on it quickly.
 
 ## Business Problem
-Southwest Airlines' single largest operating expense is labor at roughly 40% of total costs, and how crews are scheduled directly determines both profitability and reliability. The December 2022 meltdown — 16,700 cancellations and over $800M in losses — showed exactly what happens when a crew scheduling system optimizes purely for cost efficiency with no resilience built in. This project models that tradeoff and builds a smarter decision tool to balance both objectives.
+Southwest Airlines' single largest operating expense is labor at roughly 40% of total costs, and how crews are scheduled directly determines both profitability and reliability. The December 2022 meltdown, with 16,700 cancellations and over $800M in losses, showed exactly what happens when a crew scheduling system optimizes purely for cost efficiency with no resilience built in. This project models that tradeoff and builds a smarter decision tool to balance both objectives.
 
 ## Status
 ✅ Part 1: Optimization Engine (Complete)
@@ -36,7 +36,7 @@ This optimization engine analyzes **100 possible combinations** of crew utilizat
 
 ### Key Findings
 - **16%** of solutions are Pareto optimal (16 out of 100)
-- **84 dominated solutions** were identified and should be avoided — each has a strictly better alternative available on the frontier
+- **84 dominated solutions** were identified and should be avoided. Each has a strictly better alternative available on the frontier
 - Key strategic points identified on the frontier:
 
 | Strategy | Utilization Rate | Reserve Buffer | Cost Efficiency | Resilience Score |
