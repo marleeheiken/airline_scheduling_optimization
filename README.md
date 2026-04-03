@@ -69,7 +69,7 @@ pip install -r requirements.txt
 airline_scheduling_optimization/
 ├── optimization_engine.ipynb       # Main analysis notebook
 ├── data/
-│   └── data_generation_prompt.txt  # Prompt to create synthetic dataset
+│   ├── data_generation_prompt.txt  # Prompt to create synthetic dataset
 │   └── sw_crew_scheduling.csv      # Synthetic 100-solution dataset
 ├── images/
 │   ├── data_exploration.png
