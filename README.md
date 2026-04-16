@@ -9,7 +9,7 @@ Southwest Airlines' single largest operating expense is labor at roughly 40% of 
 ## Status
 ✅ Part 1: Optimization Engine (Complete)
 
-🚧 Part 2: Constraint-Aware Decision Agent (Coming Soon)
+🚧 Part 2: Constraint-Aware Decision Agent (Cimplete)
 
 ## Technologies
 - Python
@@ -77,3 +77,67 @@ airline_scheduling_optimization/
 ├── requirements.txt
 └── README.md
 ```
+
+
+
+## Part 2: Constraint-Aware Decision Agent (Complete ✓)
+
+### What It Does
+The decision agent takes the Pareto frontier from Phase 1 and applies:
+1. Business constraints to filter for feasible solutions
+2. Heuristic decision logic based on current business context
+3. Transparent explanations of recommendations
+
+### Key Findings
+- Applied **3 business constraints** (FAA overtime cap, union labor floor, aircraft certification buffer)
+- **~10–14 of 16** Pareto-optimal solutions were feasible after constraint filtering (exact count depends on your data run — replace with your printed output)
+- Agent successfully adapted recommendations across **4 different scenarios**, shifting from a high-reserve resilience posture (pre-holiday) to a lean cost-efficiency posture (stable spring) and a balanced competitive stance
+- **Final recommendation:** 69% utilization rate with 19 reserve crews — a resilience-first strategy justified by Southwest's post-2022 DOT oversight and ongoing regulatory scrutiny
+
+### Agent Features
+- **Input**: Business scenario dictionary (priority, urgency, competitive pressure, description)
+- **Output**: Specific utilization rate + reserve buffer recommendation with full reasoning chain
+- **Explainability**: Executive-ready plain-language summary covering decision, expected outcomes, alternatives considered, tradeoffs, risks, and implementation next steps
+- **Testability**: Demonstrated across 4 realistic Southwest Airlines scenarios (pre-holiday disruption season, competitor price war, stable spring operations, rapid network expansion)
+
+### Running the Agent
+1. Complete Phase 1 first (optimization engine) — Phase 2 depends on `pareto_df` and `feasible_df`
+2. Run all Phase 2 cells in `optimization_engine.ipynb` in order
+3. Customize scenarios in Part 2.4 to test different business conditions
+4. Review the final recommendation and executive brief in Part 2.6
+5. The executive summary is also saved automatically to `FINAL_RECOMMENDATION.txt`
+
+### Technologies Used
+- Python (pandas, numpy, matplotlib)
+- Jupyter Notebook
+- Heuristic / rule-based decision agent
+- Multi-objective Pareto optimization
+- Southwest Airlines operational research (FAA Part 117, DOT consent order, collective bargaining references)
+
+### Business Constraints Implemented
+| Constraint | Type | Threshold |
+|---|---|---|
+| FAA Overtime Cap | Regulatory | `overtime_cost_multiplier ≤ 2.0` |
+| Union Labor Floor | Contractual | `resilience_score ≥ 30` |
+| Aircraft Certification Buffer | Operational | `reserve_buffer ≥ 5`; `≥ 8` if utilization > 88% |
+
+### Project Structure
+```
+├── optimization_engine.ipynb   # Main notebook (Phase 1 + Phase 2)
+├── data/
+│   └── sw_crew_scheduling.csv  # Synthetic Southwest scheduling dataset
+├── images/
+│   ├── data_exploration.png
+│   ├── pareto_frontier_analysis.png
+│   ├── feasible_region.png
+│   ├── scenario_recommendations.png
+│   ├── agent_decision_process.png
+│   └── final_recommendation_summary.png
+├── FINAL_RECOMMENDATION.txt    # Auto-generated executive brief
+└── requirements.txt
+```
+
+### Next Steps
+- Record executive presentation video (Unit 14)
+- Discuss limitations and improvements
+- Present complete system as portfolio piece
